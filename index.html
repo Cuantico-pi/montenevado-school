@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montenevado School — Básicos y Diversificado</title>
+<meta name="description" content="Montenevado School. Básicos y Diversificado en Zona 1. Bachillerato en Computación con orientación científica. Admisiones 2027 abiertas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   PALETA DE COLORES DEL COLEGIO
+   ▸ EDITA AQUÍ si algún día cambian los colores institucionales.
+   Con cambiar estos valores cambia TODA la página.
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+    --azul:      #0B2A5B;   /* azul marino del logo */
+    --azul-claro:#1A4A8F;
+    --celeste:   #17A2D6;   /* celeste de la mascota / WhatsApp */
+    --amarillo:  #FFC72C;
+    --rosa:      #E9458C;
+    --crema:     #F7F9FC;
+    --gris:      #64748B;
+    --texto:     #16233B;
+
+    --Lora: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', Georgia, serif;
+    --Inter:  'Aptos', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--sans);
+    color: var(--texto);
+    background: var(--crema);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.contenedor {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Títulos ─────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+    font-family: var(--serif);
+    line-height: 1.18;
+    letter-spacing: -.2px;
+}
+
+.titulo-seccion {
+    font-family: var(--serif);
+    font-size: clamp(27px, 3.7vw, 40px);
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 12px;
+}
+
+.etiqueta {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--celeste);
+    margin-bottom: 10px;
+}
+
+.bajada {
+    font-size: 17px;
+    color: var(--gris);
+    max-width: 640px;
+    margin-bottom: 32px;
+}
+
+.barra {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(11, 42, 91, .97);
+    backdrop-filter: blur(8px);
+    transition: box-shadow .3s;
+}
+.barra.scrolled { box-shadow: 0 4px 20px rgba(11,42,91,.25); }
+
+.barra-int {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ▸ AQUÍ VA EL LOGO
+   Reemplaza el <div class="logo-circulo">LOGO</div> por:
+       <img src="imagenes/logo.png" alt="Logo Montenevado School">
+   El archivo del logo debe estar en la carpeta  imagenes/
+   que va junto a este index.html
+   ══════════════════════════════════════════════════════════════════ */
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-circulo {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--azul);
+    letter-spacing: .5px;
+    flex-shrink: 0;
+    border: 2px solid var(--amarillo);
+}
+
+.marca-texto { display: flex; flex-direction: column; }
+
+.marca-nombre {
+    font-family: var(--serif);
+    color: #fff;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: .2px;
+    line-height: 1.1;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ▸ EDITA AQUÍ: el texto que va DEBAJO del nombre en la barra.
+   Tiene que decir únicamente:  Básicos y Diversificado
+   ══════════════════════════════════════════════════════════════════ */
+.marca-sub {
+    font-family: var(--sans);
+    color: rgba(255,255,255,.75);
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav-desktop {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.nav-desktop a {
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background .2s, color .2s;
+}
+.nav-desktop a:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+.btn-nav {
+    background: var(--celeste) !important;
+    color: var(--azul) !important;
+    font-weight: 700 !important;
+    margin-left: 8px;
+}
+.btn-nav:hover { background: #ffd45e !important; }
+
+/* Botón de menú en celular */
+.btn-menu {
+    display: none;
+    background: none;
+    border: 1.5px solid rgba(255,255,255,.35);
+    border-radius: 6px;
+    width: 42px;
+    height: 38px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+}
+.btn-menu span,
+.btn-menu span::before,
+.btn-menu span::after {
+    display: block;
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: .25s;
+}
+.btn-menu span { top: 18px; }
+.btn-menu span::before { content:""; top: -6px; }
+.btn-menu span::after  { content:""; top: 6px; }
+.btn-menu.abierto span { background: transparent; }
+.btn-menu.abierto span::before { top: 0; transform: translateX(-50%) rotate(45deg); }
+.btn-menu.abierto span::after  { top: 0; transform: translateX(-50%) rotate(-45deg); }
+
+.nav-movil {
+    display: none;
+    flex-direction: column;
+    background: var(--azul);
+    padding: 8px 24px 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+.nav-movil.abierto { display: flex; }
+.nav-movil a {
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 0;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-movil a:last-child { border-bottom: none; }
+
+/* ══════════════════════════════════════════════════════════════════
+   PORTADA (HERO)
+   ══════════════════════════════════════════════════════════════════ */
+.hero {
+    position: relative;
+    background: linear-gradient(150deg, var(--azul) 0%, var(--azul-claro) 55%, #0d356f 100%);
+    color: #fff;
+    padding: 60px 0 64px;
+    overflow: hidden;
+}
+
+/* Burbujas decorativas de fondo */
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.hero::before {
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(23,162,214,.45), transparent 65%);
+    top: -220px; right: -140px;
+}
+.hero::after {
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(166,206,57,.28), transparent 65%);
+    bottom: -200px; left: -120px;
+}
+
+.hero-int {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.chip-admision {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255,199,44,.16);
+    border: 1px solid rgba(255,199,44,.5);
+    color: var(--amarillo);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+}
+.chip-admision::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amarillo);
+    animation: pulso 2s infinite;
+}
+@keyframes pulso {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .35; transform: scale(.8); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ▸ EDITA AQUÍ: el eslogan de la portada
+   ══════════════════════════════════════════════════════════════════ */
+.hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(31px, 4.8vw, 51px);
+    font-weight: 700;
+    letter-spacing: -.6px;
+    margin-bottom: 20px;
+}
+.hero h1 em {
+    font-style: normal;
+    color: var(--amarillo);
+    display: inline-block;
+}
+
+.hero p {
+    font-size: clamp(16px, 1.6vw, 19px);
+    color: rgba(255,255,255,.8);
+    max-width: 520px;
+    margin-bottom: 34px;
+}
+
+.hero-botones { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* ══════════════════════════════════════════════════════════════════
+   ICONOS DE LOS BOTONES
+   Cada icono tiene su propia animación y se reproduce al pasar el
+   cursor por encima del botón.
+   ▸ EDITA AQUÍ: si querés el icono más grande, cambiá el width/height
+   ══════════════════════════════════════════════════════════════════ */
+.btn .icono {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    overflow: visible;
+}
+
+/* Icono de lista de requisitos: las líneas se van dibujando */
+.btn:hover .icono-lista path.ln {
+    animation: dibujarLinea .5s ease forwards;
+}
+.btn:hover .icono-lista path.ln2 { animation-delay: .1s; }
+.btn:hover .icono-lista path.ln3 { animation-delay: .2s; }
+.btn:hover .icono-lista .tick {
+    animation: aparecerTick .4s ease .3s forwards;
+}
+.icono-lista path.ln { stroke-dasharray: 8; stroke-dashoffset: 0; }
+.icono-lista .tick { opacity: 0; transform-origin: center; }
+
+@keyframes dibujarLinea {
+    0%   { stroke-dashoffset: 8; }
+    100% { stroke-dashoffset: 0; }
+}
+@keyframes aparecerTick {
+    0%   { opacity: 0; transform: scale(.3); }
+    70%  { opacity: 1; transform: scale(1.25); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Icono de teléfono: vibra */
+.btn:hover .icono-tel { animation: vibrar .5s ease; }
+@keyframes vibrar {
+    0%, 100% { transform: rotate(0) scale(1); }
+    20%      { transform: rotate(-14deg) scale(1.08); }
+    40%      { transform: rotate(12deg) scale(1.08); }
+    60%      { transform: rotate(-9deg) scale(1.05); }
+    80%      { transform: rotate(6deg) scale(1.02); }
+}
+
+/* Icono de lápiz: escribe */
+.btn:hover .icono-lapiz { animation: escribir .6s ease; }
+@keyframes escribir {
+    0%, 100% { transform: translate(0,0) rotate(0); }
+    25%      { transform: translate(2px,-3px) rotate(-8deg); }
+    50%      { transform: translate(-1px,-1px) rotate(4deg); }
+    75%      { transform: translate(1px,-2px) rotate(-4deg); }
+}
+
+/* Icono de WhatsApp: late */
+.btn:hover .icono-wa { animation: latir .7s ease infinite; }
+@keyframes latir {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.18); }
+}
+
+/* Icono de mapa: el pin salta */
+.btn:hover .icono-pin { animation: saltar .6s ease; }
+@keyframes saltar {
+    0%, 100% { transform: translateY(0); }
+    35%      { transform: translateY(-5px); }
+    60%      { transform: translateY(0); }
+    75%      { transform: translateY(-2px); }
+}
+
+/* Icono de estrella: gira */
+.btn:hover .icono-estrella { animation: girar .7s ease; }
+@keyframes girar {
+    0%   { transform: rotate(0) scale(1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.btn-cta {
+    background: var(--amarillo);
+    color: var(--azul);
+    box-shadow: 0 8px 24px rgba(255,199,44,.32);
+}
+.btn-cta:hover { background: #ffd45e; }
+
+.btn-borde {
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,.35);
+}
+.btn-borde:hover { background: rgba(255,255,255,.1); }
+
+/* ══════════════════════════════════════════════════════════════════
+   ▸ AQUÍ VA LA FOTO DE LA PORTADA
+   Reemplaza el bloque <div class="foto-portada"> ... </div> por:
+       <img src="imagenes/portada.jpg" alt="Estudiantes de Montenevado School">
+   Guárdalo en la carpeta  imagenes/
+   ══════════════════════════════════════════════════════════════════ */
+.foto-portada {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,.2);
+    box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    background: linear-gradient(135deg, rgba(23,162,214,.28), rgba(166,206,57,.18));
+}
+
+/* Cualquier imagen que falle muestra este aviso en lugar del ícono roto */
+.foto-portada img,
+.foto-cuadrada img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.aviso-foto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,.85);
+}
+.aviso-foto strong { font-size: 15px; }
+.aviso-foto code {
+    background: rgba(0,0,0,.25);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* ── Franja de datos ─────────────────────────────────────────────── */
+.franja {
+    background: #fff;
+    border-bottom: 1px solid #E2E8F0;
+}
+.franja-int {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 26px 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.dato { text-align: center; }
+.dato-num {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    color: var(--azul);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.dato-num span { font-size: .58em; font-weight: 700; letter-spacing: 0; }
+.dato-txt {
+    font-size: 12px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--gris);
+    font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SECCIONES GENERALES
+   ══════════════════════════════════════════════════════════════════ */
+.seccion { padding: 60px 0; }
+.seccion.blanca { background: #fff; }
+.seccion.azul { background: var(--azul); color: #fff; }
+.seccion.azul .titulo-seccion { color: #fff; }
+.seccion.azul .bajada { color: rgba(255,255,255,.72); }
+.seccion.azul .etiqueta { color: var(--celeste); }
+
+/* ── Nosotros ────────────────────────────────────────────────────── */
+.nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+.nosotros-texto p {
+    font-size: 16.5px;
+    color: #3B4A63;
+    margin-bottom: 16px;
+}
+.nosotros-texto strong { color: var(--azul); }
+
+/* ══════════════════════════════════════════════════════════════════
+   ▸ AQUÍ VA LA FOTO DE "QUIÉNES SOMOS"
+   Cambia el src del <img> de abajo. Formato vertical u horizontal.
+   ══════════════════════════════════════════════════════════════════ */
+.foto-cuadrada {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(23,162,214,.16), rgba(166,206,57,.16));
+    border: 1px solid #DDE5EF;
+}
+.foto-cuadrada .aviso-foto { color: var(--gris); }
+.foto-cuadrada .aviso-foto code { background: #E8EEF6; }
+
+/* ── Tarjetas de visión y misión ─────────────────────────────────── */
+.vision-mision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+.tarjeta-vm {
+    background: #fff;
+    border-radius: 14px;
+    padding: 32px;
+    border-top: 5px solid var(--celeste);
+    box-shadow: 0 6px 24px rgba(11,42,91,.07);
+}
+.tarjeta-vm:nth-child(2) { border-top-color: var(--amarillo); }
+.tarjeta-vm h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--azul);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.tarjeta-vm p { font-size: 15.5px; color: #3B4A63; }
+
+/* ── Bachillerato ────────────────────────────────────────────────── */
+.bachi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+.bachi-grid h2 { margin-bottom: 20px; }
+.bachi-grid p { font-size: 16px; color: rgba(255,255,255,.82); margin-bottom: 16px; }
+
+.lista-check { list-style: none; }
+.lista-check li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 11px;
+    font-size: 15.5px;
+    color: rgba(255,255,255,.88);
+}
+.lista-check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--celeste);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+}
+
+/* ── Pensum con pestañas ─────────────────────────────────────────── */
+.pestanas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 34px;
+    flex-wrap: wrap;
+}
+.pestana {
+    background: #fff;
+    border: 2px solid #DDE5EF;
+    color: var(--gris);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .22s;
+}
+.pestana:hover { border-color: var(--celeste); color: var(--celeste); }
+.pestana.activa {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: #fff;
+}
+
+.panel { display: none; }
+.panel.activo { display: block; animation: aparecer .35s ease; }
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.materias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+.materia {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-left: 4px solid var(--celeste);
+    border-radius: 10px;
+    padding: 15px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--texto);
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.materia:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 18px rgba(11,42,91,.09);
+    border-left-color: var(--celeste);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ICONOS DE LAS MATERIAS
+   Cada materia tiene su icono y una animación distinta al pasar el
+   cursor por encima.
+   ══════════════════════════════════════════════════════════════════ */
+.materia {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+.materia .ic {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    stroke: var(--celeste);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    transition: stroke .2s;
+}
+.materia:hover .ic { stroke: var(--azul); }
+
+/* Calculadora — los números parpadean */
+.materia:hover .ic-calc { animation: parpadeo .6s ease; }
+@keyframes parpadeo {
+    0%,100% { opacity: 1; }
+    30%     { opacity: .35; }
+    60%     { opacity: 1; }
+    80%     { opacity: .5; }
+}
+
+/* Átomo / física — gira */
+.materia:hover .ic-atomo { animation: girarLento .9s ease; }
+@keyframes girarLento {
+    from { transform: rotate(0); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Monitor — se enciende */
+.materia:hover .ic-monitor { animation: encender .55s ease; }
+@keyframes encender {
+    0%   { transform: scale(.85); opacity: .4; }
+    50%  { transform: scale(1.12); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Código — las flechas se separan */
+.materia:hover .ic-code .izq { animation: moverIzq .5s ease; }
+.materia:hover .ic-code .der { animation: moverDer .5s ease; }
+@keyframes moverIzq { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-3px); } }
+@keyframes moverDer { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+
+/* Globo de idioma — viaja */
+.materia:hover .ic-idioma { animation: viajar .6s ease; }
+@keyframes viajar {
+    0%,100% { transform: translate(0,0); }
+    50%      { transform: translate(3px,-3px); }
+}
+
+/* Gráfica de barras — crece */
+.materia:hover .ic-grafica .b1 { animation: crecer1 .5s ease; }
+.materia:hover .ic-grafica .b2 { animation: crecer2 .5s ease .05s; }
+.materia:hover .ic-grafica .b3 { animation: crecer3 .5s ease .1s; }
+@keyframes crecer1 { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.7); } }
+@keyframes crecer2 { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.5); } }
+@keyframes crecer3 { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.9); } }
+.ic-grafica .b1, .ic-grafica .b2, .ic-grafica .b3 { transform-origin: bottom; }
+
+/* Libro — la página se abre */
+.materia:hover .ic-libro { animation: abrirLibro .55s ease; }
+@keyframes abrirLibro {
+    0%,100% { transform: scale(1); }
+    50%      { transform: scale(1.13) rotate(-3deg); }
+}
+
+/* Mundo — gira */
+.materia:hover .ic-mundo { animation: girarLento 1s ease; }
+
+/* Balón / deporte — bota */
+.materia:hover .ic-balón { animation: botar .6s ease; }
+@keyframes botar {
+    0%,100% { transform: translateY(0); }
+    40%      { transform: translateY(-5px); }
+    70%      { transform: translateY(0); }
+    85%      { transform: translateY(-2px); }
+}
+
+/* Lógica — se desliza */
+.materia:hover .ic-logica { animation: deslizar .5s ease; }
+@keyframes deslizar {
+    0%,100% { transform: translateX(0); }
+    50%      { transform: translateX(4px); }
+}
+
+/* Herramienta / soporte — gira como llave */
+.materia:hover .ic-tool { animation: girarLento .7s ease; }
+
+/* Química — burbujea */
+.materia:hover .ic-quimica { animation: burbuja .6s ease; }
+@keyframes burbuja {
+    0%,100% { transform: translateY(0) scale(1); }
+    45%      { transform: translateY(-3px) scale(1.08); }
+}
+
+/* Seminario / birrete — salta */
+.materia:hover .ic-birrete { animation: saltar .6s ease; }
+
+/* ── Valores ─────────────────────────────────────────────────────── */
+.valores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+.valor {
+    background: #fff;
+    border: 2px solid #E2E8F0;
+    border-radius: 100px;
+    padding: 11px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--azul);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: .22s;
+}
+.valor:hover {
+    border-color: var(--celeste);
+    background: #EAF7FC;
+    transform: translateY(-2px);
+}
+.valor::before {
+    content: "★";
+    color: var(--amarillo);
+    font-size: 15px;
+}
+
+/* ── Actividades ─────────────────────────────────────────────────── */
+.actividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+}
+.actividad {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15.5px;
+    font-weight: 500;
+    box-shadow: 0 4px 14px rgba(11,42,91,.06);
+    transition: transform .22s, box-shadow .22s;
+}
+.actividad:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(11,42,91,.12);
+}
+.actividad-num {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #E8F4FD;
+    color: var(--celeste);
+    font-weight: 800;
+    font-size: 14px;
+    display: grid;
+    place-items: center;
+}
+.actividad:nth-child(even) .actividad-num { background: #FEF3DA; color: #B98900; }
+
+/* ── Admisiones ──────────────────────────────────────────────────── */
+.admisiones-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 800px;
+}
+
+.panel-caja {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 8px 30px rgba(11,42,91,.08);
+}
+.panel-caja h3 {
+    font-family: var(--serif);
+    font-size: 23px;
+    color: var(--azul);
+    margin-bottom: 22px;
+}
+
+.lista-requisitos { list-style: none; }
+.lista-requisitos li {
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 16px;
+    font-size: 15.5px;
+    color: #3B4A63;
+}
+.lista-requisitos li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--celeste);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+}
+
+/* ── Útiles escolares (acordeón) ─────────────────────────────────── */
+.acordeon {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+.acordeon-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--azul);
+    text-align: left;
+    padding: 17px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background .2s;
+}
+.acordeon-btn:hover { background: #F7F9FC; }
+.acordeon-btn .flecha {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #EAF1FA;
+    color: var(--azul);
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    transition: transform .3s, background .3s;
+}
+.acordeon.abierto .acordeon-btn .flecha {
+    transform: rotate(180deg);
+    background: var(--celeste);
+}
+.acordeon-cuerpo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+}
+.acordeon.abierto .acordeon-cuerpo { max-height: 2000px; }
+.acordeon-int {
+    padding: 4px 24px 26px;
+    border-top: 1px solid #EEF2F7;
+}
+.acordeon-int ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 32px;
+    margin-top: 14px;
+}
+.acordeon-int li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 11px;
+    font-size: 15px;
+    color: #3B4A63;
+    break-inside: avoid;
+}
+.acordeon-int li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: var(--celeste);
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    top: 0;
+}
+
+.observacion {
+    background: #FDF6E7;
+    border-left: 4px solid var(--amarillo);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 22px;
+    font-size: 14.5px;
+    color: #7A5A1A;
+}
+.observacion strong { display: block; margin-bottom: 8px; color: #5C4310; }
+
+.colores-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+.color-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 100px;
+    padding: 5px 13px;
+    font-size: 13px;
+}
+.color-punto {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   GALERÍA DE FOTOS
+   ══════════════════════════════════════════════════════════════════ */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 14px;
+}
+
+.galeria-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: linear-gradient(135deg, rgba(23,162,214,.18), rgba(11,42,91,.12));
+    border: 1px solid #E2E8F0;
+}
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .55s ease;
+}
+.galeria-item:hover img { transform: scale(1.08); }
+
+.galeria-cap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 28px 16px 14px;
+    background: linear-gradient(to top, rgba(7,27,61,.85), transparent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s, transform .3s;
+}
+.galeria-item:hover .galeria-cap { opacity: 1; transform: translateY(0); }
+
+/* Fotos que ocupan dos columnas (más impacto visual) */
+.galeria-item.ancha { grid-column: span 2; aspect-ratio: 8 / 3; }
+
+/* ── Video ───────────────────────────────────────────────────────── */
+.video-caja {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #071B3D;
+    box-shadow: 0 14px 40px rgba(7,27,61,.35);
+    margin-top: 30px;
+}
+.video-caja video,
+.video-caja iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+}
+
+/* ── Tira de fotos dentro de una sección ─────────────────────────── */
+.foto-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 34px;
+}
+.foto-strip .foto-cuadrada { aspect-ratio: 16 / 10; }
+
+/* Foto dentro de la sección oscura del bachillerato */
+.foto-bachi {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 26px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+}
+.foto-bachi img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ══════════════════════════════════════════════════════════════════
+   VISOR DE FOTOS (lightbox)
+   Se abre al tocar cualquier foto de la galería.
+   ══════════════════════════════════════════════════════════════════ */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    background: rgba(5,18,42,.96);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.lightbox.abierto { display: flex; }
+
+.lightbox img {
+    max-width: 92vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+
+.lb-btn {
+    position: absolute;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background .2s, transform .2s;
+}
+.lb-btn:hover { background: rgba(255,255,255,.24); transform: scale(1.06); }
+
+.lb-cerrar { top: 20px; right: 20px; }
+.lb-prev   { left: 20px; top: 50%; margin-top: -24px; }
+.lb-next   { right: 20px; top: 50%; margin-top: -24px; }
+
+.lb-contador {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   UBICACIÓN Y RESEÑAS
+   ══════════════════════════════════════════════════════════════════ */
+.ubi-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.mapa-caja {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #DDE5EF;
+    box-shadow: 0 8px 26px rgba(11,42,91,.09);
+    background: #E8EEF6;
+    min-height: 380px;
+}
+.mapa-caja iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    border: 0;
+}
+
+.mapa-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.mapa-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #3B4A63;
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+}
+.mapa-chip:hover { border-color: var(--celeste); color: var(--celeste); }
+
+/* ── Caja de reseñas ─────────────────────────────────────────────── */
+.caja-resenas {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 8px 26px rgba(11,42,91,.08);
+}
+.caja-resenas h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--azul);
+    margin-bottom: 6px;
+}
+.caja-resenas > p {
+    font-size: 14.5px;
+    color: var(--gris);
+    margin-bottom: 20px;
+}
+
+/* Estrellas clickeables */
+.estrellas {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+.estrella-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 30px;
+    line-height: 1;
+    color: #DDE5EF;
+    transition: color .15s, transform .15s;
+}
+.estrella-btn:hover { transform: scale(1.15); }
+.estrella-btn.activa { color: var(--amarillo); }
+
+.campo {
+    width: 100%;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    color: var(--texto);
+    background: #FCFDFE;
+    transition: border-color .2s;
+}
+.campo:focus {
+    outline: none;
+    border-color: var(--celeste);
+    background: #fff;
+}
+textarea.campo { resize: vertical; min-height: 88px; }
+
+.btn-resena {
+    width: 100%;
+    justify-content: center;
+    background: var(--celeste);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(23,162,214,.28);
+}
+.btn-resena:hover { background: #1591c0; }
+
+/* Reseñas que ya dejaron otros papás */
+.lista-resenas {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #EEF2F7;
+}
+.resena {
+    padding: 12px 0;
+    border-bottom: 1px solid #F2F5F9;
+}
+.resena:last-child { border-bottom: none; padding-bottom: 0; }
+.resena-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+.resena-nombre {
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--azul);
+}
+.resena-estrellas {
+    color: var(--amarillo);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.resena-texto {
+    font-size: 14px;
+    color: var(--gris);
+    line-height: 1.5;
+}
+
+/* ── Contacto ────────────────────────────────────────────────────── */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+.tarjeta-contacto {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px;
+    padding: 28px;
+    transition: background .25s, border-color .25s;
+}
+.tarjeta-contacto:hover {
+    background: rgba(255,255,255,.12);
+    border-color: rgba(166,206,57,.5);
+}
+.tarjeta-contacto h3 {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--celeste);
+    margin-bottom: 16px;
+}
+.tarjeta-contacto a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color .2s;
+}
+.tarjeta-contacto a:hover { color: var(--celeste); }
+.tarjeta-contacto p {
+    color: rgba(255,255,255,.82);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.redes {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+.redes a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0;
+    transition: background .25s, transform .25s;
+}
+.redes a:hover {
+    background: var(--celeste);
+    color: var(--azul);
+    transform: translateY(-3px);
+}
+
+.cta-final {
+    background: linear-gradient(135deg, var(--amarillo), #FFB300);
+    color: var(--azul);
+    border-radius: 18px;
+    padding: 30px 34px;
+    text-align: center;
+}
+.cta-final h3 {
+    font-family: var(--serif);
+    font-size: clamp(23px, 3vw, 32px);
+    margin-bottom: 10px;
+}
+.cta-final p {
+    font-size: 16px;
+    margin-bottom: 26px;
+    opacity: .85;
+}
+.btn-azul {
+    background: var(--azul);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(11,42,91,.3);
+}
+.btn-azul:hover { background: #0e3a7a; }
+
+/* ── Pie de página ───────────────────────────────────────────────── */
+.pie {
+    background: #071B3D;
+    color: rgba(255,255,255,.6);
+    padding: 40px 0 28px;
+    font-size: 14px;
+}
+.pie-int {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    margin-bottom: 22px;
+}
+.pie-marca {
+    font-family: var(--serif);
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+.pie-marca span {
+    display: block;
+    font-size: 11px;
+    color: var(--celeste);
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 3px;
+}
+.pie-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.pie-links a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+.pie-links a:hover { color: #fff; }
+
+/* ══════════════════════════════════════════════════════════════════
+   ▸ EDITA AQUÍ: tu crédito como autor del sitio
+   Él autorizó que tu nombre vaya al final de la página.
+   Borra el bloque entero si algún día no lo querés.
+   ══════════════════════════════════════════════════════════════════ */
+/* Barra inferior: derechos a la izquierda, autor a la derecha */
+.pie-final {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+    /* deja libre la esquina inferior derecha donde va el botón de WhatsApp */
+    padding-right: 86px;
+    font-size: 13px;
+    color: rgba(255,255,255,.42);
+    letter-spacing: .3px;
+}
+.pie-final strong { color: rgba(255,255,255,.72); font-weight: 600; }
+
+/* ══════════════════════════════════════════════════════════════════
+   BOTÓN FLOTANTE DE WHATSAPP
+   Aparece en la esquina inferior derecha, siempre visible.
+   ▸ EDITA AQUÍ: el número y el mensaje que se escribe solo
+   ══════════════════════════════════════════════════════════════════ */
+.wa-flotante {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 300;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 22px rgba(37,211,102,.45);
+    transition: transform .25s, box-shadow .25s;
+    animation: flotarEntrada .6s ease .8s backwards;
+}
+.wa-flotante:hover {
+    transform: scale(1.09) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37,211,102,.6);
+}
+.wa-flotante svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+@keyframes flotarEntrada {
+    from { opacity: 0; transform: scale(.4) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Ondita que llama la atención cada cierto tiempo */
+.wa-flotante::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    animation: ondita 2.6s ease-out infinite;
+}
+@keyframes ondita {
+    0%   { opacity: .8; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.55); }
+}
+
+/* ── Animación al bajar ──────────────────────────────────────────── */
+.revelar {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.revelar.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .revelar { opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   CELULAR Y TABLETA
+   ══════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .hero-int,
+    .nosotros-grid,
+    .bachi-grid,
+    .admisiones-grid,
+    .vision-mision { grid-template-columns: 1fr; }
+
+    .hero-int { gap: 40px; }
+    .hero { padding: 44px 0 50px; }
+    .hero p { margin-bottom: 28px; }
+
+    .franja-int { grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    .seccion { padding: 44px 0; }
+
+    .galeria-item.ancha { grid-column: span 1; aspect-ratio: 4 / 3; }
+    .galeria-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+    .foto-strip { grid-template-columns: 1fr; }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+    .lb-btn { width: 42px; height: 42px; font-size: 19px; }
+
+    .ubi-grid { grid-template-columns: 1fr; }
+    .mapa-caja, .mapa-caja iframe { min-height: 300px; }
+
+    .nav-desktop { display: none; }
+    .btn-menu { display: block; }
+
+    .acordeon-int ul { columns: 1; }
+    .cta-final { padding: 32px 24px; }
+    .panel-caja { padding: 28px; }
+    .tarjeta-vm { padding: 26px; }
+}
+
+@media (max-width: 520px) {
+    .wa-flotante { width: 52px; height: 52px; right: 14px; bottom: 14px; }
+    .wa-flotante svg { width: 28px; height: 28px; }
+    .pie-final { flex-direction: column; align-items: flex-start; gap: 6px; padding-right: 68px; }
+    .contenedor { padding: 0 18px; }
+    .barra-int { padding: 10px 18px; }
+    .marca-nombre { font-size: 15px; }
+    .logo-circulo { width: 40px; height: 40px; }
+    .hero-botones .btn { width: 100%; justify-content: center; }
+    .franja-int { grid-template-columns: 1fr 1fr; padding: 26px 18px; }
+    .materias { grid-template-columns: 1fr; }
+    .actividades { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     BARRA SUPERIOR
+     ══════════════════════════════════════════════════════════════════ -->
+<header class="barra" id="barra">
+    <div class="barra-int">
+
+        <!-- ▸ LOGO + NOMBRE -->
+        <a href="#" class="marca">
+            <div class="logo-circulo">LOGO</div>
+            <div class="marca-texto">
+                <span class="marca-nombre">MONTENEVADO SCHOOL</span>
+                <!-- ▸ EDITA AQUÍ: debe decir únicamente "Básicos y Diversificado" -->
+                <span class="marca-sub">Básicos y Diversificado</span>
+            </div>
+        </a>
+
+        <!-- ▸ EDITA AQUÍ: los enlaces del menú -->
+        <nav class="nav-desktop">
+            <a href="#nosotros">Nosotros</a>
+            <a href="#bachillerato">Bachillerato</a>
+            <a href="#pensum">Pensum</a>
+            <a href="#valores">Valores</a>
+            <a href="#galeria">Galería</a>
+            <a href="#admisiones">Admisiones</a>
+            <a href="#ubicacion">Ubicación</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#admisiones" class="btn-nav">Inscribirse</a>
+        </nav>
+
+        <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Menú que aparece en celular -->
+    <nav class="nav-movil" id="navMovil">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#bachillerato">Bachillerato</a>
+        <a href="#pensum">Pensum</a>
+        <a href="#valores">Valores</a>
+        <a href="#galeria">Galería</a>
+        <a href="#admisiones">Admisiones</a>
+        <a href="#utiles">Lista de útiles</a>
+        <a href="#ubicacion">Ubicación y opiniones</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PORTADA
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="contenedor hero-int">
+
+        <div>
+            <span class="chip-admision">Admisiones 2027 abiertas</span>
+
+            <!-- ▸ EDITA AQUÍ: el eslogan. Ya está puesto el que dio el colegio. -->
+            <h1>No hay meta más alta<br>que la que <em>no deseas alcanzar</em>.</h1>
+
+            <p>Bachillerato en Computación con orientación científica. Formamos profesionales de alto nivel desde el año 2002.</p>
+
+            <div class="hero-botones">
+                <a href="#admisiones" class="btn btn-cta">
+                    <svg class="icono icono-lista" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="5" y="4" width="14" height="17" rx="2"/>
+                        <path class="ln" d="M9 10h6"/>
+                        <path class="ln ln2" d="M9 14h6"/>
+                        <path class="ln ln3" d="M9 18h3"/>
+                        <path class="tick" d="M8 4.5V3.5a1 1 0 011-1h6a1 1 0 011 1v1"/>
+                    </svg>
+                    Ver requisitos
+                </a>
+                <a href="#contacto" class="btn btn-borde">
+                    <svg class="icono icono-tel" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/>
+                    </svg>
+                    Contáctanos
+                </a>
+            </div>
+        </div>
+
+        <!-- ▸ AQUÍ VA LA FOTO DE PORTADA -->
+        <div class="foto-portada">
+            <img src="imagenes/portada.jpg" alt="Estudiantes de Montenevado School" onerror="mostrarAviso(this, 'FOTO DE PORTADA', 'imagenes/portada.jpg')">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     FRANJA DE DATOS
+     ▸ EDITA AQUÍ los números si alguno cambia
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="franja">
+    <div class="franja-int">
+        <div class="dato">
+            <span class="dato-num">24<span> años</span></span>
+            <span class="dato-txt">De experiencia</span>
+        </div>
+        <div class="dato">
+            <span class="dato-num">2002</span>
+            <span class="dato-txt">Año de fundación</span>
+        </div>
+        <div class="dato">
+            <span class="dato-num">2<span> niveles</span></span>
+            <span class="dato-txt">Básicos y Diversificado</span>
+        </div>
+        <div class="dato">
+            <span class="dato-num">Científica</span>
+            <span class="dato-txt">Orientación del bachillerato</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     QUIÉNES SOMOS
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion blanca" id="nosotros">
+    <div class="contenedor">
+        <div class="nosotros-grid revelar">
+
+            <div class="nosotros-texto">
+                <span class="etiqueta">Quiénes somos</span>
+                <h2 class="titulo-seccion">Formamos líderes,<br>construimos futuro</h2>
+
+                <!-- ▸ EDITA AQUÍ: el texto de "Quiénes somos" -->
+                <p>Somos una institución educativa con <strong>24 años de experiencia</strong>, que nace en el año <strong>2002</strong> con el objetivo de formar profesionales de alto nivel. Su fundadora, comprometida con la educación y con deseos de aportar beneficios a nuestra nación, ha trabajado constantemente para egresar alumnos con valores personales, profesionales y espirituales.</p>
+
+                <p>Capaces de enfrentarse a las diferentes situaciones que se encuentran en el camino hacia el cumplimiento de sus metas u objetivos, proveyendo así un soporte a nuestra nación con profesionales que con excelencia académica.</p>
+            </div>
+
+            <!-- ▸ AQUÍ VA LA FOTO DE NOSOTROS -->
+            <div class="foto-cuadrada">
+                <img src="imagenes/nosotros.jpg" alt="Instalaciones de Montenevado School" onerror="mostrarAviso(this, 'FOTO DE NOSOTROS', 'imagenes/nosotros.jpg')">
+            </div>
+
+        </div>
+
+        <div class="vision-mision revelar">
+            <div class="tarjeta-vm">
+                <h3>◈ Visión</h3>
+                <p>Somos una institución de profesionales de amplia excelencia académica, que promueve la educación integral, en un ambiente agradable e interactivo que forma estudiantes de alto nivel, potenciando el placer por el aprender, el aprendizaje significativo mediante el desarrollo de competencias e implementación de la tecnología.</p>
+            </div>
+            <div class="tarjeta-vm">
+                <h3>◈ Misión</h3>
+                <p>Ser una institución líder en la Educación integral a nivel nacional, en el año por medio de su metodología y tecnología de vanguardia, se proyecte como una institución que prepara a los estudiantes para enfrentarse a los retos que se exigen para alcanzar los objetivos del milenio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     BACHILLERATO
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion azul" id="bachillerato">
+    <div class="contenedor">
+        <div class="bachi-grid revelar">
+
+            <div>
+                <span class="etiqueta">Diversificado</span>
+                <h2 class="titulo-seccion">Bachillerato en Computación<br>con orientación científica</h2>
+
+                <p>Es un programa educativo diseñado para proporcionar a los estudiantes una sólida formación en ciencias de la computación, combinando conocimientos en áreas científicas con áreas específicas que son clave en el desarrollo tecnológico.</p>
+
+                <p>Se enfoca en desarrollar habilidades analíticas y técnicas, preparando a los estudiantes para enfrentar los desafíos del mundo digital y contribuir al avance de la tecnología.</p>
+
+                <p>Al finalizar, los graduados están preparados para continuar sus estudios en carreras universitarias relacionadas con la computación, la ingeniería, las ciencias matemáticas, entre otras.</p>
+
+                <!-- ▸ AQUÍ VA UNA FOTO: estudiantes trabajando en computadora -->
+                <div class="foto-bachi">
+                    <img src="imagenes/bachillerato.jpg" alt="Estudiantes del bachillerato en computación" onerror="mostrarAviso(this, 'FOTO DEL BACHILLERATO', 'imagenes/bachillerato.jpg')">
+                </div>
+            </div>
+
+            <div>
+                <h3 style="font-size:20px;margin-bottom:18px;color:var(--celeste);">Al finalizar el bachillerato podrás:</h3>
+                <ul class="lista-check">
+                    <li>Desarrollar soluciones tecnológicas innovadoras</li>
+                    <li>Programar software eficiente y robusto</li>
+                    <li>Implementar algoritmos y estructuras de datos</li>
+                    <li>Trabajar en equipo de manera efectiva</li>
+                    <li>Comprender tecnologías emergentes como la inteligencia artificial</li>
+                    <li>Prepararte para estudios universitarios en computación</li>
+                </ul>
+
+                <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:9px;">
+                    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:100px;font-size:13px;">Programación</span>
+                    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:100px;font-size:13px;">Inteligencia Artificial</span>
+                    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:100px;font-size:13px;">Ciberseguridad</span>
+                    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:100px;font-size:13px;">Análisis de Datos</span>
+                    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:100px;font-size:13px;">Innovación Tecnológica</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PENSUM
+     ▸ EDITA AQUÍ: si cambian las materias, se cambian en las listas
+     de abajo. Cada <div class="materia"> es una materia.
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion" id="pensum">
+    <div class="contenedor">
+        <span class="etiqueta">Plan de estudios</span>
+        <h2 class="titulo-seccion">Pensum de estudios</h2>
+        <p class="bajada">Carrera de Bachillerato en Computación con orientación científica.</p>
+
+        <div class="pestanas">
+            <button class="pestana activa" data-panel="panel-cuarto">Cuarto</button>
+            <button class="pestana" data-panel="panel-quinto">Quinto</button>
+        </div>
+
+        <!-- CUARTO -->
+        <div class="panel activo" id="panel-cuarto">
+            <div class="materias">
+                <div class="materia"><svg class="ic ic-calc" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7"/><circle cx="8.6" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="15.4" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="8.6" cy="16.2" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="16.2" r=".8" fill="currentColor" stroke="none"/><circle cx="15.4" cy="16.2" r=".8" fill="currentColor" stroke="none"/></svg><span>Matemática I</span></div>
+                <div class="materia"><svg class="ic ic-atomo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4.6"/><ellipse cx="12" cy="12" rx="10" ry="4.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.6" transform="rotate(120 12 12)"/></svg><span>Física I</span></div>
+                <div class="materia"><svg class="ic ic-monitor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="12.5" rx="1.6"/><path d="M8.5 20.5h7M12 16.5v4"/></svg><span>Computación I</span></div>
+                <div class="materia"><svg class="ic ic-code" viewBox="0 0 24 24" aria-hidden="true"><path class="izq" d="M8.5 8.5L4.5 12l4 3.5"/><path class="der" d="M15.5 8.5l4 3.5-4 3.5"/><path d="M13.2 6.5l-2.4 11"/></svg><span>Programación I</span></div>
+                <div class="materia"><svg class="ic ic-idioma" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4"/><path d="M12 2.8c2.6 2.6 4 5.8 4 9.2s-1.4 6.6-4 9.2c-2.6-2.6-4-5.8-4-9.2s1.4-6.6 4-9.2z"/></svg><span>Inglés I</span></div>
+                <div class="materia"><svg class="ic ic-grafica" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><rect class="b1" x="5.5" y="12" width="3.4" height="8"/><rect class="b2" x="10.3" y="8" width="3.4" height="12"/><rect class="b3" x="15.1" y="4.5" width="3.4" height="15.5"/></svg><span>Estadística I</span></div>
+                <div class="materia"><svg class="ic ic-libro" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.2C10.4 4.8 7.6 4.3 4 4.6v13.6c3.6-.3 6.4.2 8 1.6 1.6-1.4 4.4-1.9 8-1.6V4.6c-3.6-.3-6.4.2-8 1.6z"/><path d="M12 6.2v13.6"/></svg><span>Comunicación y Literatura</span></div>
+                <div class="materia"><svg class="ic ic-mundo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M3.2 9.5h17M3.2 14.5h17"/><path d="M12 2.8c-2.4 2.6-3.6 5.8-3.6 9.2s1.2 6.6 3.6 9.2c2.4-2.6 3.6-5.8 3.6-9.2S14.4 5.4 12 2.8z"/></svg><span>Estudios Sociales</span></div>
+                <div class="materia"><svg class="ic ic-balón" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M12 2.8c-1.6 2-2.6 4.4-2.6 7s1 5 2.6 7"/><path d="M12 2.8c1.6 2 2.6 4.4 2.6 7s-1 5-2.6 7"/><path d="M3.2 9.5c2.4 1 5.6 1.6 8.8 1.6s6.4-.6 8.8-1.6"/></svg><span>Educación Física</span></div>
+                <div class="materia"><svg class="ic ic-logica" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8.4 6h7.2M7.2 8.2l3.6 7.6M16.8 8.2l-3.6 7.6"/></svg><span>Lógica Matemática</span></div>
+                <div class="materia"><svg class="ic ic-tool" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 105.1 5.1l-9 9-2.4.6.6-2.4 9-9z"/></svg><span>Soporte Técnico</span></div>
+            </div>
+        </div>
+
+        <!-- QUINTO -->
+        <div class="panel" id="panel-quinto">
+            <div class="materias">
+                <div class="materia"><svg class="ic ic-calc" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7"/><circle cx="8.6" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="15.4" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="8.6" cy="16.2" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="16.2" r=".8" fill="currentColor" stroke="none"/><circle cx="15.4" cy="16.2" r=".8" fill="currentColor" stroke="none"/></svg><span>Matemática Aplicada</span></div>
+                <div class="materia"><svg class="ic ic-monitor" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="12.5" rx="1.6"/><path d="M8.5 20.5h7M12 16.5v4"/></svg><span>Computación</span></div>
+                <div class="materia"><svg class="ic ic-code" viewBox="0 0 24 24" aria-hidden="true"><path class="izq" d="M8.5 8.5L4.5 12l4 3.5"/><path class="der" d="M15.5 8.5l4 3.5-4 3.5"/><path d="M13.2 6.5l-2.4 11"/></svg><span>Programación</span></div>
+                <div class="materia"><svg class="ic ic-idioma" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4"/><path d="M12 2.8c2.6 2.6 4 5.8 4 9.2s-1.4 6.6-4 9.2c-2.6-2.6-4-5.8-4-9.2s1.4-6.6 4-9.2z"/></svg><span>Inglés</span></div>
+                <div class="materia"><svg class="ic ic-libro" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.2C10.4 4.8 7.6 4.3 4 4.6v13.6c3.6-.3 6.4.2 8 1.6 1.6-1.4 4.4-1.9 8-1.6V4.6c-3.6-.3-6.4.2-8 1.6z"/><path d="M12 6.2v13.6"/></svg><span>Educación Estética</span></div>
+                <div class="materia"><svg class="ic ic-calc" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7"/><circle cx="8.6" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="15.4" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="8.6" cy="16.2" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="16.2" r=".8" fill="currentColor" stroke="none"/><circle cx="15.4" cy="16.2" r=".8" fill="currentColor" stroke="none"/></svg><span>Matemática Preuniversitaria</span></div>
+                <div class="materia"><svg class="ic ic-quimica" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3h5"/><path d="M10.5 3v6.2L5.6 17.4A2 2 0 007.4 20.5h9.2a2 2 0 001.8-3.1L13.5 9.2V3"/><path d="M7.6 15.4h8.8"/></svg><span>Fisicoquímica</span></div>
+                <div class="materia"><svg class="ic ic-balón" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M12 2.8c-1.6 2-2.6 4.4-2.6 7s1 5 2.6 7"/><path d="M12 2.8c1.6 2 2.6 4.4 2.6 7s-1 5-2.6 7"/><path d="M3.2 9.5c2.4 1 5.6 1.6 8.8 1.6s6.4-.6 8.8-1.6"/></svg><span>Educación Física</span></div>
+                <div class="materia"><svg class="ic ic-mundo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M3.2 9.5h17M3.2 14.5h17"/><path d="M12 2.8c-2.4 2.6-3.6 5.8-3.6 9.2s1.2 6.6 3.6 9.2c2.4-2.6 3.6-5.8 3.6-9.2S14.4 5.4 12 2.8z"/></svg><span>Ética y Relaciones Humanas</span></div>
+                <div class="materia"><svg class="ic ic-birrete" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 8.5L12 4l9.5 4.5L12 13z"/><path d="M6.2 10.6v5c0 1.6 2.6 2.9 5.8 2.9s5.8-1.3 5.8-2.9v-5"/><path d="M21.5 8.5v6"/></svg><span>Seminario</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     VALORES Y ACTIVIDADES
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion blanca" id="valores">
+    <div class="contenedor">
+
+        <div class="revelar">
+            <span class="etiqueta">Nuestros valores</span>
+            <h2 class="titulo-seccion">Formamos valores,<br>construimos futuro</h2>
+            <p class="bajada">La práctica de valores éticos, morales y espirituales, es lo que nos identifica como una institución integral.</p>
+
+            <div class="valores">
+                <span class="valor">Respeto a Dios</span>
+                <span class="valor">Honestidad</span>
+                <span class="valor">Compromiso</span>
+                <span class="valor">Trabajo en Equipo</span>
+                <span class="valor">Solidaridad</span>
+                <span class="valor">Responsabilidad</span>
+                <span class="valor">Dedicación</span>
+                <span class="valor">Esfuerzo</span>
+                <span class="valor">Confianza</span>
+                <span class="valor">Constancia</span>
+            </div>
+        </div>
+
+        <div class="revelar" style="margin-top:64px;">
+            <span class="etiqueta">Vida estudiantil</span>
+            <h2 class="titulo-seccion">Actividades</h2>
+            <p class="bajada">Un colegio también se vive fuera del aula.</p>
+
+            <div class="actividades">
+                <div class="actividad"><span class="actividad-num">01</span> Elección de Gobierno Estudiantil</div>
+                <div class="actividad"><span class="actividad-num">02</span> Feria Científica</div>
+                <div class="actividad"><span class="actividad-num">03</span> Campaña Social — Obra Social</div>
+                <div class="actividad"><span class="actividad-num">04</span> Semana Tecnológica</div>
+                <div class="actividad"><span class="actividad-num">05</span> Spelling Bee</div>
+                <div class="actividad"><span class="actividad-num">06</span> Talent Show</div>
+                <div class="actividad"><span class="actividad-num">07</span> Festival de Gimnasia Rítmica</div>
+                <div class="actividad"><span class="actividad-num">08</span> Semana Cultural</div>
+                <div class="actividad"><span class="actividad-num">09</span> Fiesta de Aniversario</div>
+                <div class="actividad"><span class="actividad-num">10</span> Cena de Graduandos</div>
+                <div class="actividad"><span class="actividad-num">11</span> Campamento</div>
+            </div>
+
+            <!-- ▸ AQUÍ VAN DOS FOTOS de actividades del colegio -->
+            <div class="foto-strip">
+                <div class="foto-cuadrada">
+                    <img src="imagenes/actividad-1.jpg" alt="Actividades de los estudiantes" onerror="mostrarAviso(this, 'FOTO DE ACTIVIDAD', 'imagenes/actividad-1.jpg')">
+                </div>
+                <div class="foto-cuadrada">
+                    <img src="imagenes/actividad-2.jpg" alt="Vida estudiantil" onerror="mostrarAviso(this, 'FOTO DE ACTIVIDAD', 'imagenes/actividad-2.jpg')">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     GALERÍA DE FOTOS Y VIDEO
+     ▸ EDITA AQUÍ:
+       1. Cada <div class="galeria-item"> es una foto. Cambiá el src y
+          el texto del <span class="galeria-cap">.
+       2. Para agregar otra foto, copiá un bloque completo y pegalo.
+       3. El video: poné tu archivo en videos/colegio.mp4 o cambiá el
+          bloque por un iframe de YouTube (está explicado abajo).
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion blanca" id="galeria">
+    <div class="contenedor">
+        <span class="etiqueta">Conocenos</span>
+        <h2 class="titulo-seccion">Así se vive Montenevado</h2>
+        <p class="bajada">Instalaciones, actividades y el día a día del colegio.</p>
+
+        <div class="galeria-grid revelar">
+
+            <!-- ▸ FOTO GRANDE (ocupa dos columnas) -->
+            <div class="galeria-item ancha" data-foto="imagenes/galeria-1.jpg">
+                <img src="imagenes/galeria-1.jpg" alt="Fachada del colegio" onerror="mostrarAviso(this, 'FOTO DE GALERÍA', 'imagenes/galeria-1.jpg')">
+                <span class="galeria-cap">Nuestras instalaciones</span>
+            </div>
+
+            <div class="galeria-item" data-foto="imagenes/galeria-2.jpg">
+                <img src="imagenes/galeria-2.jpg" alt="Salón de clases" onerror="mostrarAviso(this, 'FOTO DE GALERÍA', 'imagenes/galeria-2.jpg')">
+                <span class="galeria-cap">Salones de clase</span>
+            </div>
+
+            <div class="galeria-item" data-foto="imagenes/galeria-3.jpg">
+                <img src="imagenes/galeria-3.jpg" alt="Laboratorio de computación" onerror="mostrarAviso(this, 'FOTO DE GALERÍA', 'imagenes/galeria-3.jpg')">
+                <span class="galeria-cap">Laboratorio de computación</span>
+            </div>
+
+            <div class="galeria-item" data-foto="imagenes/galeria-4.jpg">
+                <img src="imagenes/galeria-4.jpg" alt="Biblioteca" onerror="mostrarAviso(this, 'FOTO DE GALERÍA', 'imagenes/galeria-4.jpg')">
+                <span class="galeria-cap">Biblioteca</span>
+            </div>
+
+            <div class="galeria-item" data-foto="imagenes/galeria-5.jpg">
+                <img src="imagenes/galeria-5.jpg" alt="Área de recreo" onerror="mostrarAviso(this, 'FOTO DE GALERÍA', 'imagenes/galeria-5.jpg')">
+                <span class="galeria-cap">Área de recreo</span>
+            </div>
+
+            <div class="galeria-item" data-foto="imagenes/galeria-6.jpg">
+                <img src="imagenes/galeria-6.jpg" alt="Graduación" onerror="mostrarAviso(this, 'FOTO DE GALERÍA', 'imagenes/galeria-6.jpg')">
+                <span class="galeria-cap">Graduación</span>
+            </div>
+
+        </div>
+
+        <!-- ══════════ VIDEO ══════════
+             Opción A (recomendada): subí tu video a videos/colegio.mp4
+             y dejá la etiqueta <video> como está.
+             Opción B: si lo subís a YouTube, borrá la etiqueta <video>
+             y pegá el <iframe> que te da YouTube.
+        -->
+        <div class="video-caja">
+            <video controls preload="none"
+                   poster="imagenes/video-poster.jpg"
+                   onerror="mostrarAvisoVideo(this)">
+                <source src="videos/colegio.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </div>
+
+        <!-- Ejemplo de video de YouTube (descomentá y borrá el <video> de arriba):
+        <div class="video-caja">
+            <iframe src="https://www.youtube.com/embed/CODIGO_DEL_VIDEO"
+                    title="Video del colegio"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        -->
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     ADMISIONES
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion" id="admisiones">
+    <div class="contenedor">
+        <span class="etiqueta">Admisiones 2027</span>
+        <h2 class="titulo-seccion">Tu futuro comienza aquí</h2>
+        <p class="bajada">Todo lo que necesitás para inscribirte. Si tenés dudas, escribinos.</p>
+
+        <div class="admisiones-grid revelar">
+
+            <!-- REQUISITOS -->
+            <div class="panel-caja">
+                <h3>Requisitos de inscripción</h3>
+                <ul class="lista-requisitos">
+                    <li>Código personal MINEDUC</li>
+                    <li>Diplomas de Preprimaria y Primaria</li>
+                    <li>Certificados de cada grado cursado</li>
+                    <li>Carta de conducta</li>
+                </ul>
+
+                <div style="margin-top:32px;padding-top:26px;border-top:1px solid #EEF2F7;">
+                    <h3 style="font-size:17px;margin-bottom:14px;">¿Dudas antes de inscribirte?</h3>
+                    <p style="font-size:15px;color:#3B4A63;margin-bottom:20px;">Escribinos o llamanos. Con gusto te explicamos el proceso completo y coordinamos una visita al colegio.</p>
+                    <!-- ▸ EDITA AQUÍ: el número de WhatsApp de destino -->
+                    <a href="https://wa.me/50236931032?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20inscripciones%20del%20colegio"
+                       class="btn btn-azul" target="_blank" rel="noopener">
+                        <svg class="icono icono-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path fill="currentColor" stroke="none" d="M20.52 3.45A11.85 11.85 0 0012.05 0C5.46 0 .1 5.33.1 11.89c0 2.1.55 4.14 1.6 5.94L0 24l6.34-1.65c1.75.94 3.71 1.44 5.71 1.45h.01c6.58 0 11.94-5.34 11.95-11.9 0-3.17-1.24-6.16-3.49-8.4zM12.05 21.8c-1.78 0-3.53-.48-5.05-1.38l-.36-.22-3.76.98 1-3.65-.24-.37a9.83 9.83 0 01-1.51-5.25c0-5.45 4.46-9.88 9.94-9.88 2.65 0 5.14 1.03 7.02 2.9a9.78 9.78 0 012.9 6.99c0 5.45-4.46 9.88-9.94 9.88z"/></svg>
+                        Consultar por WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     LISTA DE ÚTILES
+     ▸ EDITA AQUÍ: cada <li> es un artículo de la lista.
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion blanca" id="utiles">
+    <div class="contenedor">
+        <span class="etiqueta">Ciclo escolar</span>
+        <h2 class="titulo-seccion">Lista de útiles escolares</h2>
+        <p class="bajada">Hacé clic en cada sección para ver el detalle.</p>
+
+        <!-- ACORDEÓN 1: LISTA DE ESTUDIANTE -->
+        <div class="acordeon abierto">
+            <button class="acordeon-btn">
+                Lista de estudiante
+                <span class="flecha">▾</span>
+            </button>
+            <div class="acordeon-cuerpo">
+                <div class="acordeon-int">
+                    <ul>
+                        <li>9 cuadernos de líneas, tamaño carta</li>
+                        <li>1 cuaderno de cuadrícula, tamaño carta</li>
+                        <li>2 lápices y 2 lapiceros (rojo, negro, azul)</li>
+                        <li>1 caja de crayones de 12 colores</li>
+                        <li>1 regla de 30 cm</li>
+                        <li>1 frasco de goma</li>
+                        <li>1 tijera, 1 borrador y 1 sacapuntas</li>
+                        <li>1 caja de marcadores de 12 colores</li>
+                        <li>1 calculadora científica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACORDEÓN 2: MATERIALES ADICIONALES -->
+        <div class="acordeon">
+            <button class="acordeon-btn">
+                Materiales adicionales
+                <span class="flecha">▾</span>
+            </button>
+            <div class="acordeon-cuerpo">
+                <div class="acordeon-int">
+                    <ul>
+                        <li>2 selladores marca TESA</li>
+                        <li>2 masking tape marca TESA</li>
+                        <li>4 sobres papel manila tamaño oficio</li>
+                        <li>4 sobres papel manila tamaño carta</li>
+                        <li>3 resmas de hojas blancas tamaño carta</li>
+                        <li>3 rollos de papel higiénico para dispensador</li>
+                        <li>2 frascos de jabón líquido para manos</li>
+                        <li>2 paquetes de toallas íntimas (Serontas)</li>
+                        <li>2 marcadores permanentes punta biselada, color negro</li>
+                        <li>6 marcadores para pizarra (2 rojos, 2 negros, 2 azul)</li>
+                        <li>10 pliegos de papel bond</li>
+                        <li>10 pliegos de papel Kraft</li>
+                        <li>2 block de papel arcoíris</li>
+                    </ul>
+
+                    <div class="observacion">
+                        <strong>Observaciones</strong>
+                        Otros materiales deberán comprarse conforme se vayan realizando las tareas y actividades.
+                        Los cuadernos deben venir forrados de los siguientes colores según el área:
+                        <div class="colores-area">
+                            <span class="color-chip"><span class="color-punto" style="background:#1E56A0;"></span>Básico — Azul</span>
+                            <span class="color-chip"><span class="color-punto" style="background:#FFC72C;"></span>Ciencias de la Comunicación — Amarillo</span>
+                            <span class="color-chip"><span class="color-punto" style="background:#17A2D6;"></span>Computación — Celeste</span>
+                            <span class="color-chip"><span class="color-punto" style="background:#E08B2E;"></span>Dibujo — Anaranjado</span>
+                            <span class="color-chip"><span class="color-punto" style="background:#A6CE39;"></span>Peritos — Verde claro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     UBICACIÓN Y RESEÑAS
+     ▸ EDITA AQUÍ:
+       1. El mapa: cambiá el texto de Google Maps en el src del iframe
+          para que apunte a la dirección exacta del colegio.
+       2. La lista de reseñas de abajo: cada <div class="resena"> es una.
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion blanca" id="ubicacion">
+    <div class="contenedor">
+        <span class="etiqueta">Visitanos</span>
+        <h2 class="titulo-seccion">Ubicación y opiniones</h2>
+        <p class="bajada">Estamos en el centro de la ciudad. Y esto es lo que dicen las familias.</p>
+
+        <div class="ubi-grid revelar">
+
+            <!-- MAPA -->
+            <div>
+                <div class="mapa-caja">
+                    <!-- ▸ EDITA AQUÍ: mapa de Google Maps del colegio -->
+                    <iframe
+                        src="https://www.google.com/maps?q=2a+Avenida+3-16+Zona+1+Guatemala&output=embed"
+                        title="Ubicación de Montenevado School en el mapa"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div class="mapa-datos">
+                    <a href="https://www.google.com/maps/search/?api=1&query=2a+Avenida+3-16+Zona+1+Guatemala"
+                       class="mapa-chip" target="_blank" rel="noopener">
+                        <svg class="icono icono-pin" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px;">
+                            <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Abrir en Google Maps
+                    </a>
+                    <span class="mapa-chip">2a Avenida 3-16, Zona 1</span>
+                </div>
+            </div>
+
+            <!-- RESEÑAS -->
+            <div class="caja-resenas">
+                <h3>Dejanos tu opinión</h3>
+                <p>Tu experiencia ayuda a otras familias a decidir.</p>
+
+                <div class="estrellas" id="estrellas">
+                    <button class="estrella-btn" data-valor="1" aria-label="1 estrella">★</button>
+                    <button class="estrella-btn" data-valor="2" aria-label="2 estrellas">★</button>
+                    <button class="estrella-btn" data-valor="3" aria-label="3 estrellas">★</button>
+                    <button class="estrella-btn" data-valor="4" aria-label="4 estrellas">★</button>
+                    <button class="estrella-btn" data-valor="5" aria-label="5 estrellas">★</button>
+                </div>
+
+                <input type="text" class="campo" id="resenaNombre" placeholder="Tu nombre">
+                <textarea class="campo" id="resenaTexto" placeholder="¿Qué te pareció el colegio?"></textarea>
+
+                <!-- ▸ EDITA AQUÍ: el número de WhatsApp que recibe las reseñas -->
+                <button class="btn btn-resena" id="btnResena">
+                    <svg class="icono icono-estrella" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>
+                    </svg>
+                    Enviar mi opinión
+                </button>
+
+                <div class="lista-resenas">
+                    <!-- ▸ EDITA AQUÍ: reseñas reales de papás del colegio -->
+                    <div class="resena">
+                        <div class="resena-top">
+                            <span class="resena-nombre">Familia Morales</span>
+                            <span class="resena-estrellas">★★★★★</span>
+                        </div>
+                        <p class="resena-texto">Excelente atención de la secretaría y muy buena formación en computación.</p>
+                    </div>
+                    <div class="resena">
+                        <div class="resena-top">
+                            <span class="resena-nombre">Sra. Castillo</span>
+                            <span class="resena-estrellas">★★★★★</span>
+                        </div>
+                        <p class="resena-texto">Mis dos hijos estudiaron aquí. Los maestros son muy dedicados.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     CONTACTO
+     ▸ EDITA AQUÍ: teléfonos, WhatsApp, dirección y redes sociales
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="seccion azul" id="contacto">
+    <div class="contenedor">
+        <span class="etiqueta">Contáctanos</span>
+        <h2 class="titulo-seccion">Estamos para servirte</h2>
+        <p class="bajada">Llamanos, escribinos o visitanos. Con gusto te atendemos.</p>
+
+        <div class="contacto-grid revelar">
+
+            <!-- TELÉFONOS -->
+            <div class="tarjeta-contacto">
+                <h3>Llamadas</h3>
+                <a href="tel:22500210">2250-0210</a>
+                <a href="tel:22381393">2238-1393</a>
+            </div>
+
+            <!-- WHATSAPP -->
+            <div class="tarjeta-contacto">
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/50236931032" target="_blank" rel="noopener">3693-1032</a>
+                <a href="https://wa.me/50236930864" target="_blank" rel="noopener">3693-0864</a>
+            </div>
+
+            <!-- DIRECCIÓN -->
+            <div class="tarjeta-contacto">
+                <h3>Dirección</h3>
+                <p>2a Avenida 3-16<br>Zona 1, Guatemala</p>
+            </div>
+
+        </div>
+
+        <!-- LLAMADO FINAL -->
+        <div class="cta-final">
+            <h3>Las inscripciones 2027 ya están abiertas</h3>
+            <p>Reservá tu cupo antes de que se llenen los grupos.</p>
+            <a href="https://wa.me/50236931032?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20inscripciones%20del%20colegio"
+               class="btn btn-azul" target="_blank" rel="noopener">
+                <svg class="icono icono-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/><path fill="currentColor" stroke="none" d="M20.52 3.45A11.85 11.85 0 0012.05 0C5.46 0 .1 5.33.1 11.89c0 2.1.55 4.14 1.6 5.94L0 24l6.34-1.65c1.75.94 3.71 1.44 5.71 1.45h.01c6.58 0 11.94-5.34 11.95-11.9 0-3.17-1.24-6.16-3.49-8.4zM12.05 21.8c-1.78 0-3.53-.48-5.05-1.38l-.36-.22-3.76.98 1-3.65-.24-.37a9.83 9.83 0 01-1.51-5.25c0-5.45 4.46-9.88 9.94-9.88 2.65 0 5.14 1.03 7.02 2.9a9.78 9.78 0 012.9 6.99c0 5.45-4.46 9.88-9.94 9.88z"/></svg>
+                Escribir por WhatsApp</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PIE DE PÁGINA
+     ══════════════════════════════════════════════════════════════════ -->
+<footer class="pie">
+    <div class="contenedor">
+
+        <div class="pie-int">
+            <div class="pie-marca">
+                Montenevado School
+                <span>Básicos y Diversificado</span>
+            </div>
+
+            <nav class="pie-links">
+                <a href="#nosotros">Nosotros</a>
+                <a href="#bachillerato">Bachillerato</a>
+                <a href="#pensum">Pensum</a>
+                <a href="#galeria">Galería</a>
+                <a href="#admisiones">Admisiones</a>
+                <a href="#utiles">Útiles</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+
+        <!-- ▸ EDITA AQUÍ: derechos reservados y tu nombre como autor -->
+        <div class="pie-final">
+            <span>&copy; <span id="anioActual">2027</span> Montenevado School. Todos los derechos reservados.</span>
+            <span>Sitio desarrollado por <strong>Danni A. Martínez</strong></span>
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     BOTÓN FLOTANTE DE WHATSAPP
+     ▸ EDITA AQUÍ: el número (solo dígitos, con 502 adelante)
+     ══════════════════════════════════════════════════════════════════ -->
+<a href="https://wa.me/50236931032?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20colegio"
+   class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 01-2.4-1.5 9 9 0 01-1.6-2c-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2-.4-.5-.6-.5h-.6a1.2 1.2 0 00-.9.4A3.6 3.6 0 006 8.9a6.2 6.2 0 001.3 3.3 14.2 14.2 0 005.4 4.8 18 18 0 001.8.7 4.3 4.3 0 002 .1 3.3 3.3 0 002.1-1.5 2.6 2.6 0 00.2-1.5c-.1-.2-.3-.3-.6-.4z"/>
+        <path d="M12 2A10 10 0 002.9 16.9L2 22l5.2-1.1A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3.1.7.7-3-.2-.3A8.2 8.2 0 1112 20.2z"/>
+    </svg>
+</a>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     VISOR DE FOTOS
+     Se abre al hacer clic en cualquier foto de la galería.
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox">
+    <button class="lb-btn lb-cerrar" id="lbCerrar" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+    <img id="lbImg" src="" alt="Foto ampliada">
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Siguiente">›</button>
+    <span class="lb-contador" id="lbContador"></span>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   AVISO CUANDO FALTA UNA IMAGEN
+   Si la foto no está en la carpeta imagenes/, se muestra un recuadro
+   que te dice exactamente qué archivo falta. Así no ves el ícono roto.
+   Borra esta función cuando ya tengas todas las fotos puestas.
+   ══════════════════════════════════════════════════════════════════ */
+function mostrarAviso(img, titulo, ruta) {
+    var contenedor = img.parentElement;
+    img.style.display = 'none';
+    var aviso = document.createElement('div');
+    aviso.className = 'aviso-foto';
+    aviso.innerHTML = '<strong>' + titulo + '</strong>' +
+                      '<span>Falta esta imagen</span>' +
+                      '<code>' + ruta + '</code>';
+    contenedor.appendChild(aviso);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   MENÚ EN CELULAR
+   ══════════════════════════════════════════════════════════════════ */
+var btnMenu = document.getElementById('btnMenu');
+var navMovil = document.getElementById('navMovil');
+
+btnMenu.addEventListener('click', function () {
+    btnMenu.classList.toggle('abierto');
+    navMovil.classList.toggle('abierto');
+});
+
+navMovil.querySelectorAll('a').forEach(function (enlace) {
+    enlace.addEventListener('click', function () {
+        btnMenu.classList.remove('abierto');
+        navMovil.classList.remove('abierto');
+    });
+});
+
+
+/* ══════════════════════════════════════════════════════════════════
+   SOMBRA DE LA BARRA AL BAJAR
+   ══════════════════════════════════════════════════════════════════ */
+var barra = document.getElementById('barra');
+window.addEventListener('scroll', function () {
+    barra.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+
+/* ══════════════════════════════════════════════════════════════════
+   PESTAÑAS DEL PENSUM (Cuarto / Quinto)
+   ══════════════════════════════════════════════════════════════════ */
+var pestanas = document.querySelectorAll('.pestana');
+
+pestanas.forEach(function (pestana) {
+    pestana.addEventListener('click', function () {
+        pestanas.forEach(function (p) { p.classList.remove('activa'); });
+        document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('activo'); });
+
+        pestana.classList.add('activa');
+        document.getElementById(pestana.dataset.panel).classList.add('activo');
+    });
+});
+
+
+/* ══════════════════════════════════════════════════════════════════
+   ACORDEÓN DE LA LISTA DE ÚTILES
+   ══════════════════════════════════════════════════════════════════ */
+document.querySelectorAll('.acordeon-btn').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+        boton.parentElement.classList.toggle('abierto');
+    });
+});
+
+
+/* ══════════════════════════════════════════════════════════════════
+   AVISO CUANDO FALTA EL VIDEO
+   ══════════════════════════════════════════════════════════════════ */
+function mostrarAvisoVideo(video) {
+    var caja = video.parentElement;
+    video.style.display = 'none';
+    var aviso = document.createElement('div');
+    aviso.className = 'aviso-foto';
+    aviso.style.color = 'rgba(255,255,255,.8)';
+    aviso.innerHTML = '<strong>VIDEO DEL COLEGIO</strong>' +
+                      '<span>Falta este archivo</span>' +
+                      '<code style="background:rgba(0,0,0,.35);padding:3px 8px;border-radius:4px;margin-top:6px;display:inline-block;">videos/colegio.mp4</code>';
+    caja.appendChild(aviso);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   VISOR DE FOTOS (lightbox)
+   Al tocar una foto de la galería se abre en grande.
+   Navegación con las flechas del teclado o los botones.
+   ══════════════════════════════════════════════════════════════════ */
+var fotosGaleria = Array.prototype.slice.call(document.querySelectorAll('.galeria-item'));
+var indiceFoto = 0;
+
+var lightbox = document.getElementById('lightbox');
+var lbImg = document.getElementById('lbImg');
+var lbContador = document.getElementById('lbContador');
+
+function abrirFoto(indice) {
+    if (indice < 0) indice = fotosGaleria.length - 1;
+    if (indice >= fotosGaleria.length) indice = 0;
+
+    indiceFoto = indice;
+    lbImg.src = fotosGaleria[indice].dataset.foto;
+    lbImg.alt = fotosGaleria[indice].querySelector('img').alt;
+    lbContador.textContent = (indice + 1) + ' / ' + fotosGaleria.length;
+    lightbox.classList.add('abierto');
+}
+
+function cerrarFoto() {
+    lightbox.classList.remove('abierto');
+}
+
+fotosGaleria.forEach(function (foto, i) {
+    foto.addEventListener('click', function () { abrirFoto(i); });
+});
+
+document.getElementById('lbCerrar').addEventListener('click', cerrarFoto);
+document.getElementById('lbPrev').addEventListener('click', function () { abrirFoto(indiceFoto - 1); });
+document.getElementById('lbNext').addEventListener('click', function () { abrirFoto(indiceFoto + 1); });
+
+lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) cerrarFoto();
+});
+
+document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('abierto')) return;
+    if (e.key === 'Escape') cerrarFoto();
+    if (e.key === 'ArrowLeft') abrirFoto(indiceFoto - 1);
+    if (e.key === 'ArrowRight') abrirFoto(indiceFoto + 1);
+});
+
+
+/* ══════════════════════════════════════════════════════════════════
+   RESEÑAS CON ESTRELLAS
+   El papá elige las estrellas, escribe su opinión y el mensaje le llega
+   al WhatsApp del colegio ya formateado. No necesita servidor.
+   ▸ EDITA AQUÍ: el número de WhatsApp que recibe las reseñas
+   ══════════════════════════════════════════════════════════════════ */
+var WHATSAPP_RESENAS = '50236931032';
+
+var estrellasBtns = document.querySelectorAll('.estrella-btn');
+var valorEstrellas = 0;
+
+estrellasBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        valorEstrellas = parseInt(btn.dataset.valor);
+
+        estrellasBtns.forEach(function (b) {
+            b.classList.toggle('activa', parseInt(b.dataset.valor) <= valorEstrellas);
+        });
+    });
+});
+
+document.getElementById('btnResena').addEventListener('click', function () {
+    var nombre = document.getElementById('resenaNombre').value.trim();
+    var texto = document.getElementById('resenaTexto').value.trim();
+
+    if (valorEstrellas === 0) {
+        alert('Elegí cuántas estrellas le das al colegio.');
+        return;
+    }
+    if (nombre === '' || texto === '') {
+        alert('Escribí tu nombre y tu opinión.');
+        return;
+    }
+
+    var estrellasTexto = '★'.repeat(valorEstrellas) + '☆'.repeat(5 - valorEstrellas);
+
+    var mensaje = '*Nueva opinión desde la página web*\n\n' +
+                  '*Nombre:* ' + nombre + '\n' +
+                  '*Calificación:* ' + estrellasTexto + '\n' +
+                  '*Opinión:* ' + texto;
+
+    window.open('https://wa.me/' + WHATSAPP_RESENAS + '?text=' + encodeURIComponent(mensaje), '_blank');
+});
+
+
+/* ══════════════════════════════════════════════════════════════════
+   AÑO AUTOMÁTICO EN LOS DERECHOS RESERVADOS
+   ══════════════════════════════════════════════════════════════════ */
+/* Muestra 2027 y avanza solo cuando llegue el año siguiente */
+document.getElementById('anioActual').textContent = Math.max(2027, new Date().getFullYear());
+
+
+/* ══════════════════════════════════════════════════════════════════
+   ANIMACIÓN AL BAJAR LA PÁGINA
+   ══════════════════════════════════════════════════════════════════ */
+if ('IntersectionObserver' in window) {
+    var observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.revelar').forEach(function (el) {
+        observador.observe(el);
+    });
+} else {
+    document.querySelectorAll('.revelar').forEach(function (el) {
+        el.classList.add('visible');
+    });
+}
+</script>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5bc40778ee2a68f',t:'MTc5NDg5MjQ2NQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5bc40778ee2a68f',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
